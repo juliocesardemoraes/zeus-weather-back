@@ -25,4 +25,4 @@ app.get("/weather", async (req, res) => {
 
 const server = app.listen("4000");
 
-export { server };
+export { app };
