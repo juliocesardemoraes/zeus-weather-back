@@ -12,6 +12,16 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Permite solicitações de qualquer origem
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Métodos permitidos
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  ); // Cabeçalhos permitidos
+  next();
+});
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
