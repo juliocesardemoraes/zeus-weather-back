@@ -1,27 +1,9 @@
-// Add your code here
-console.log("FUNCIONOU");
 import express from "express";
+const app = express();
 import cors from "cors";
 import { getWeather } from "./weather/service.js";
 
-const app = express();
-
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Permite solicitações de qualquer origem
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Métodos permitidos
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  ); // Cabeçalhos permitidos
-  next();
-});
-
+app.use(cors({}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
